@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { CATEGORIES, DIFFICULTY, QUESTION_TYPES } from '../data/options';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'trivial';
+  categoryOptions = CATEGORIES;
+  difficultyOptions = DIFFICULTY;
+  questionTypeOptions = QUESTION_TYPES;
+  numberOfQuestions: number = 5;
 }
