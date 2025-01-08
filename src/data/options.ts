@@ -1,5 +1,5 @@
 export const CATEGORIES = [
-  { id: null, name: 'Any' },
+  { id: 0, name: 'Any' },
   {
     id: 9,
     name: 'General Knowledge',
