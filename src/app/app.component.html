@@ -1,5 +1,6 @@
 <h1>Trivial</h1>
 
+<!-- CATEGORY SELECTION -->
 <mat-form-field>
   <mat-label>Category</mat-label>
   <mat-select>
@@ -9,10 +10,22 @@
   </mat-select>
 </mat-form-field>
 
-<!-- TODO difficulty -->
+<!-- DIFFICULTY SELECTION -->
+<br />
+<mat-form-field>
+  <mat-label>Difficulty</mat-label>
+  <mat-select placeholder="Any Difficulty">
+    @for (option of difficultyOptions; track $index) {
+    <mat-option [value]="option">{{ option }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
 <!-- TODO type -->
 <br />
-<!-- TODO number of questions -->
+
+<!-- NUMBER OF QUESTIONS -->
+<br />
 <mat-slider min="1" max="50" step="1" discrete>
   <input matSliderThumb value="1" />
 </mat-slider>
