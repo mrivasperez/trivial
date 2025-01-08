@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { CATEGORIES, DIFFICULTY, QUESTION_TYPES } from '../../data/options';
-import { OpenTriviaService } from '../open-trivia.service';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-options',
@@ -31,7 +31,7 @@ export class GameOptionsComponent {
   selectedDifficulty: string | number = 0;
   selectedQuestionType: string | number = 0;
 
-  constructor(private openTriviaSerivce: OpenTriviaService) {}
+  constructor(private router: Router) {}
 
   onSelectCategory(event: MatSelectChange) {
     this.selectedCategory = event.value;
@@ -53,15 +53,17 @@ export class GameOptionsComponent {
   onSubmit(event: Event) {
     event.preventDefault();
 
-    this.openTriviaSerivce
-      .getTriviaQuestions(
-        this.numberOfQuestions,
-        this.selectedCategory,
-        this.selectedDifficulty,
-        this.selectedQuestionType
-      )
-      .subscribe((response) => {
-        console.log(response, response.results[0]);
-      });
+    const queryParams = {
+      amount: this.numberOfQuestions,
+      ...(this.selectedCategory !== 0 && { category: this.selectedCategory }),
+      ...(this.selectedDifficulty !== 0 && {
+        difficulty: this.selectedDifficulty,
+      }),
+      ...(this.selectedQuestionType !== 0 && {
+        type: this.selectedQuestionType,
+      }),
+    };
+
+    this.router.navigate(['/game'], { queryParams });
   }
 }
