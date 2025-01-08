@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-interface OpenTriviaQuestion {
+export interface OpenTriviaQuestion {
   type: 'boolean' | 'multiple';
   difficulty: 'easy' | 'medium' | 'hard';
   category: string;
@@ -11,7 +11,7 @@ interface OpenTriviaQuestion {
   incorrect_answers: string[];
 }
 
-interface OpenTriviaResponse {
+export interface OpenTriviaResponse {
   response_code: number;
   results: OpenTriviaQuestion[];
 }
