@@ -1,0 +1,55 @@
+@if (loading) {<mat-spinner></mat-spinner>} @else if (error) {
+<div>{{ error }}</div>
+} @else if (!loading && !gameOver && questions.length > 0) {
+<div>
+  <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
+  <div class="question">
+    <p>
+      <strong>Category:</strong> {{ questions[currentQuestionIndex].category }}
+    </p>
+    <p>
+      <strong>Difficulty:</strong>
+      {{ questions[currentQuestionIndex].difficulty }}
+    </p>
+    <p>
+      <strong>Question:</strong> {{ questions[currentQuestionIndex].question }}
+    </p>
+    <mat-radio-group (change)="selectAnswer($event.value)">
+      @for (answer of answers; track $index) {
+      <mat-radio-button [value]="answer.text" [checked]="answer.isSelected">
+        {{ answer.text }}
+      </mat-radio-button>
+      }
+    </mat-radio-group>
+  </div>
+
+  @if (showCorrectAnswer) {
+  <div>
+    <p>
+      @for (answer of answers; track $index) {
+      <strong [style.color]="answer.isCorrect ? 'green' : 'red'">
+        {{ answer.text }}
+      </strong>
+      }
+      <br />
+      The correct answer is highlighted in green.
+    </p>
+    <br />
+  </div>
+
+  } @if (!showCorrectAnswer) {
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="handleAnswer()"
+    [disabled]="!selectedAnswer"
+  >
+    Submit Answer</button
+  >}
+</div>
+} @if(gameOver){
+<div>
+  <h2>Game Over!</h2>
+  <p>Your final score: {{ score }} / {{ questions.length }}</p>
+</div>
+}
