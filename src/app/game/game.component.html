@@ -2,7 +2,14 @@
 <div>{{ error }}</div>
 } @else if (!loading && !gameOver && questions.length > 0) {
 <div>
-  <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
+  <div class="stepper">
+    @for (question of questions; track $index) {
+    <div class="stepper__icon" [class.active]="$index === currentQuestionIndex">
+      {{ $index + 1 }}
+    </div>
+    }
+  </div>
+
   <div class="question">
     <p>
       <strong>Category:</strong> {{ questions[currentQuestionIndex].category }}

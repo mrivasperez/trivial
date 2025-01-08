@@ -6,6 +6,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
 
 interface Answer {
   text: string;
@@ -20,6 +21,7 @@ interface Answer {
     MatButtonModule,
     MatRadioModule,
     FormsModule,
+    MatStepperModule,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css',

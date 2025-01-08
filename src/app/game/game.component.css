@@ -1,0 +1,18 @@
+/* QUESTION NUMBER STEPPER */
+.stepper {
+  display: flex;
+  padding: 5px;
+  background: #d7e3ff;
+  overflow-y: scroll;
+}
+
+.stepper__icon {
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  font-size: 2rem;
+}
+
+.stepper__icon.active {
+  background-color: #005dbb;
+  color: white;
+}
