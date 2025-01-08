@@ -15,7 +15,10 @@
   <br />
   <mat-form-field>
     <mat-label>Difficulty</mat-label>
-    <mat-select placeholder="Any Difficulty">
+    <mat-select
+      placeholder="Any Difficulty"
+      (selectionChange)="onSelectDifficulty($event)"
+    >
       @for (option of difficultyOptions; track $index) {
       <mat-option [value]="option">{{ option }}</mat-option>
       }

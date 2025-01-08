@@ -26,10 +26,20 @@ export class AppComponent {
   questionTypeOptions = QUESTION_TYPES;
   numberOfQuestions: number = 5;
 
-  selectedCategory: any;
+  selectedCategory: number = 0;
+  selectedDifficulty: string = '';
+  selectedQuestionType: string = '';
 
   onSelectCategory(event: MatSelectChange) {
     this.selectedCategory = event.value;
+  }
+
+  onSelectDifficulty(event: MatSelectChange) {
+    this.selectedDifficulty = event.value;
+  }
+
+  onSelectQuestionType(event: MatSelectChange) {
+    this.selectedQuestionType = event.value;
   }
 
   onSubmit(event: Event) {
@@ -37,5 +47,6 @@ export class AppComponent {
     alert('Form Submitted');
 
     console.log(this.selectedCategory);
+    console.log(this.selectedDifficulty);
   }
 }
