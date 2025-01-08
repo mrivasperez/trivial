@@ -1,14 +1,18 @@
 <h1>Trivial</h1>
-<!-- TODO number of questions -->
-<!-- TODO Category -->
+
 <mat-form-field>
   <mat-label>Category</mat-label>
   <mat-select>
     @for (category of categoryOptions; track $index) {
-    <mat-option>{{ category.name }}</mat-option>
+    <mat-option [value]="category.id">{{ category.name }}</mat-option>
     }
   </mat-select>
 </mat-form-field>
 
 <!-- TODO difficulty -->
 <!-- TODO type -->
+<br />
+<!-- TODO number of questions -->
+<mat-slider min="1" max="50" step="1" discrete>
+  <input matSliderThumb value="1" />
+</mat-slider>
