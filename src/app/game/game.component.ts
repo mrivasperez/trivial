@@ -6,6 +6,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
+
 interface Answer {
   text: string;
   isCorrect: boolean;
@@ -59,6 +60,7 @@ export class GameComponent implements OnInit {
         .sort(() => Math.random() - 0.5);
     }
   }
+
   handleAnswer() {
     if (this.selectedAnswer) {
       this.showCorrectAnswer = true;
@@ -89,8 +91,9 @@ export class GameComponent implements OnInit {
       console.log('Game Over! Total Score:', this.score);
     }
   }
+
   selectAnswer(answer: string) {
-    console.log(answer)
+    console.log(answer);
     this.selectedAnswer = answer;
     this.answers = this.answers.map((a) => ({
       ...a,
