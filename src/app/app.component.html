@@ -1,39 +1,41 @@
 <h1>Trivial</h1>
 
-<!-- CATEGORY SELECTION -->
-<mat-form-field>
-  <mat-label>Category</mat-label>
-  <mat-select>
-    @for (category of categoryOptions; track $index) {
-    <mat-option [value]="category.id">{{ category.name }}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
+<form (ngSubmit)="onSubmit($event)">
+  <!-- CATEGORY SELECTION -->
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select>
+      @for (category of categoryOptions; track $index) {
+      <mat-option [value]="category.id">{{ category.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-<!-- DIFFICULTY SELECTION -->
-<br />
-<mat-form-field>
-  <mat-label>Difficulty</mat-label>
-  <mat-select placeholder="Any Difficulty">
-    @for (option of difficultyOptions; track $index) {
-    <mat-option [value]="option">{{ option }}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
+  <!-- DIFFICULTY SELECTION -->
+  <br />
+  <mat-form-field>
+    <mat-label>Difficulty</mat-label>
+    <mat-select placeholder="Any Difficulty">
+      @for (option of difficultyOptions; track $index) {
+      <mat-option [value]="option">{{ option }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-<!-- QUESTION TYPE -->
-<br />
-<mat-form-field>
-  <mat-label>Question Type</mat-label>
-  <mat-select placeholder="Any Type">
-    @for (option of questionTypeOptions; track $index) {
-    <mat-option [value]="option">{{ option }}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
+  <!-- QUESTION TYPE -->
+  <br />
+  <mat-form-field>
+    <mat-label>Question Type</mat-label>
+    <mat-select placeholder="Any Type">
+      @for (option of questionTypeOptions; track $index) {
+      <mat-option [value]="option">{{ option }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-<!-- NUMBER OF QUESTIONS -->
-<br />
-<mat-slider min="1" max="50" step="1" discrete>
-  <input matSliderThumb value="1" />
-</mat-slider>
+  <!-- NUMBER OF QUESTIONS -->
+  <br />
+  <mat-slider min="1" max="50" step="1" discrete>
+    <input matSliderThumb value="1" />
+  </mat-slider>
+</form>

@@ -23,4 +23,9 @@ export class AppComponent {
   difficultyOptions = DIFFICULTY;
   questionTypeOptions = QUESTION_TYPES;
   numberOfQuestions: number = 5;
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+    alert('Form Submitted');
+  }
 }
