@@ -23,6 +23,14 @@
 
 <!-- TODO type -->
 <br />
+<mat-form-field>
+  <mat-label>Question Type</mat-label>
+  <mat-select placeholder="Any Type">
+    @for (option of questionTypeOptions; track $index) {
+    <mat-option [value]="option">{{ option }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
 
 <!-- NUMBER OF QUESTIONS -->
 <br />

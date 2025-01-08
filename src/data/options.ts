@@ -98,6 +98,6 @@ export const CATEGORIES = [
   },
 ];
 
-export const DIFFICULTY = ['Easy', 'Medium', 'Hard'];
+export const DIFFICULTY = ['Any', 'Easy', 'Medium', 'Hard'];
 
 export const QUESTION_TYPES = ['Any', 'Multiple Choice', 'True/False'];
