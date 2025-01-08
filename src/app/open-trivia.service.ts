@@ -26,18 +26,19 @@ export class OpenTriviaService {
   getTriviaQuestions(
     amount: number,
     category?: number,
-    difficulty?: string,
-    type?: string
+    difficulty?: string | number,
+    type?: string | number
   ): Observable<OpenTriviaResponse> {
+    console.log(amount, category, difficulty, type);
     let params = new HttpParams().set('amount', amount);
 
-    if (category) {
+    if (category && category !== 0) {
       params = params.set('category', category);
     }
-    if (difficulty) {
+    if (difficulty && difficulty !== 0) {
       params = params.set('difficulty', difficulty);
     }
-    if (type) {
+    if (type && type !== 0) {
       params = params.set('type', type);
     }
 

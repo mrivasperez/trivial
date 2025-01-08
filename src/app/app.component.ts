@@ -28,8 +28,8 @@ export class AppComponent {
   numberOfQuestions: number = 5;
 
   selectedCategory: number = 0;
-  selectedDifficulty: string = '';
-  selectedQuestionType: string = '';
+  selectedDifficulty: string | number = 0;
+  selectedQuestionType: string | number = 0;
 
   constructor(private openTriviaSerivce: OpenTriviaService) {}
 
