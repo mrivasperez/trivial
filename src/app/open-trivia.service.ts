@@ -23,7 +23,7 @@ export class OpenTriviaService {
   private apiUrl = 'https://opentdb.com/api.php';
   constructor(private http: HttpClient) {}
 
-  getTriviaQuestion(
+  getTriviaQuestions(
     amount: number,
     category?: number,
     difficulty?: string,
