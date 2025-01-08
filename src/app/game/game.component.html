@@ -37,15 +37,15 @@
     <br />
   </div>
 
-  }
+  } @if (!showCorrectAnswer) {
   <button
     mat-flat-button
     color="primary"
     (click)="handleAnswer()"
     [disabled]="!selectedAnswer"
   >
-    Submit Answer
-  </button>
+    Submit Answer</button
+  >}
 </div>
 } @if(gameOver){
 <div>
