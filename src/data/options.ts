@@ -1,4 +1,4 @@
-export const triviaCategories = [
+export const CATEGORIES = [
   {
     id: 9,
     name: 'General Knowledge',
@@ -96,3 +96,7 @@ export const triviaCategories = [
     name: 'Entertainment: Cartoon & Animations',
   },
 ];
+
+export const DIFFICULTY = ['Easy', 'Medium', 'Hard'];
+
+export const QUESTION_TYPES = ['Any', 'Multiple Choice', 'True/False'];
