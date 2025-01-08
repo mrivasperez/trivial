@@ -38,8 +38,14 @@
 
   <!-- NUMBER OF QUESTIONS -->
   <br />
+  <p>Number of Question: {{ numberOfQuestions }}</p>
+
   <mat-slider min="1" max="50" step="1" discrete>
-    <input matSliderThumb value="1" />
+    <input
+      matSliderThumb
+      value="5"
+      (input)="onSelectNumberOfQuestions($event)"
+    />
   </mat-slider>
   <br />
   <button mat-flat-button type="submit">Start</button>

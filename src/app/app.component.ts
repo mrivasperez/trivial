@@ -42,11 +42,18 @@ export class AppComponent {
     this.selectedQuestionType = event.value;
   }
 
+  onSelectNumberOfQuestions(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.numberOfQuestions = Number(input.value);
+  }
+
   onSubmit(event: Event) {
     event.preventDefault();
     alert('Form Submitted');
 
     console.log(this.selectedCategory);
     console.log(this.selectedDifficulty);
+    console.log(this.selectedQuestionType);
+    console.log(this.numberOfQuestions);
   }
 }
