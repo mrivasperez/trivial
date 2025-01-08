@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { CATEGORIES, DIFFICULTY, QUESTION_TYPES } from '../data/options';
+import { OpenTriviaService } from './open-trivia.service';
 @Component({
   selector: 'app-root',
   imports: [
@@ -27,8 +28,10 @@ export class AppComponent {
   numberOfQuestions: number = 5;
 
   selectedCategory: number = 0;
-  selectedDifficulty: string = '';
-  selectedQuestionType: string = '';
+  selectedDifficulty: string | number = 0;
+  selectedQuestionType: string | number = 0;
+
+  constructor(private openTriviaSerivce: OpenTriviaService) {}
 
   onSelectCategory(event: MatSelectChange) {
     this.selectedCategory = event.value;
@@ -49,11 +52,16 @@ export class AppComponent {
 
   onSubmit(event: Event) {
     event.preventDefault();
-    alert('Form Submitted');
 
-    console.log(this.selectedCategory);
-    console.log(this.selectedDifficulty);
-    console.log(this.selectedQuestionType);
-    console.log(this.numberOfQuestions);
+    this.openTriviaSerivce
+      .getTriviaQuestions(
+        this.numberOfQuestions,
+        this.selectedCategory,
+        this.selectedDifficulty,
+        this.selectedQuestionType
+      )
+      .subscribe((response) => {
+        console.log(response, response.results[0]);
+      });
   }
 }

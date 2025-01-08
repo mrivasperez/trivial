@@ -20,7 +20,7 @@
       (selectionChange)="onSelectDifficulty($event)"
     >
       @for (option of difficultyOptions; track $index) {
-      <mat-option [value]="option">{{ option }}</mat-option>
+      <mat-option [value]="option.value">{{ option.label }}</mat-option>
       }
     </mat-select>
   </mat-form-field>
@@ -29,9 +29,12 @@
   <br />
   <mat-form-field>
     <mat-label>Question Type</mat-label>
-    <mat-select placeholder="Any Type">
+    <mat-select
+      placeholder="Any Type"
+      (selectionChange)="onSelectQuestionType($event)"
+    >
       @for (option of questionTypeOptions; track $index) {
-      <mat-option [value]="option">{{ option }}</mat-option>
+      <mat-option [value]="option.value">{{ option.label }}</mat-option>
       }
     </mat-select>
   </mat-form-field>
