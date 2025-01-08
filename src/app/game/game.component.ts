@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { OpenTriviaQuestion, OpenTriviaService } from '../open-trivia.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observer } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-game',
-  imports: [],
+  imports: [MatProgressSpinnerModule],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css',
 })
@@ -29,14 +30,11 @@ export class GameComponent implements OnInit {
       this.loading = true;
       this.error = null;
 
-      this.loading = true;
-      this.error = null;
-
       const observer: Observer<any> = {
         next: (response) => {
           this.questions = response.results;
           this.loading = false;
-          console.log(response)
+          console.log(response);
         },
         error: (error) => {
           this.error = 'Failed to load trivia questions.';
