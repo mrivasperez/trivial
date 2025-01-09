@@ -7,12 +7,51 @@
 }
 
 .stepper__icon {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 6px;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .stepper__icon.active {
   background-color: #005dbb;
   color: white;
+  font-weight: bold;
+}
+
+/* SCORE */
+.score {
+  margin: 1rem;
+  text-align: right;
+}
+
+/* QUESTION CARD */
+.question {
+  max-width: 600px;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+.question__radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.question .question__submit {
+  margin: 1rem 1rem;
+}
+
+.question__radio-group__option {
+  width: 100%;
+  border-radius: 1rem;
+  margin: .25rem 0;
+}
+
+.question__radio-group__option.incorrect {
+  background-color: rgba(224, 27, 36, 0.3);
+}
+
+.question__radio-group__option.correct {
+  background-color: rgba(0, 128, 0, 0.2);
 }

@@ -9,50 +9,54 @@
     </div>
     }
   </div>
-  
+
+  <div class="score">
+    <h1>🎯&nbsp;{{ score }}/{{ questions.length }}</h1>
+  </div>
   <div class="question">
-    <p>
-      <strong>Category:</strong> {{ questions[currentQuestionIndex].category }}
-    </p>
-    <p>
-      <strong>Difficulty:</strong>
-      {{ questions[currentQuestionIndex].difficulty }}
-    </p>
-    <h1>
-      {{ questions[currentQuestionIndex].question | decodeHtml }}
-    </h1>
-    <mat-radio-group (change)="selectAnswer($event.value)">
-      @for (answer of answers; track $index) {
-      <mat-radio-button [value]="answer.text" [checked]="answer.isSelected">
-        {{ answer.text }}
-      </mat-radio-button>
-      }
-    </mat-radio-group>
-  </div>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{
+          questions[currentQuestionIndex].category
+        }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ questions[currentQuestionIndex].difficulty.toLocaleUpperCase() }}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{ questions[currentQuestionIndex].question | decodeHtml }}
+        </p>
+        <mat-radio-group
+          (change)="selectAnswer($event.value)"
+          class="question__radio-group"
+        >
+          @for (answer of answers; track $index) {
+          <mat-radio-button
+            [value]="answer.text"
+            [checked]="answer.isSelected"
+            class="question__radio-group__option"
+            [class.correct]="answer.isCorrect && showCorrectAnswer"
+            [class.incorrect]="!answer.isCorrect && showCorrectAnswer"
+            >{{ answer.text | decodeHtml }}
+          </mat-radio-button>
+          }
+        </mat-radio-group>
+      </mat-card-content>
 
-  @if (showCorrectAnswer) {
-  <div>
-    <p>
-      @for (answer of answers; track $index) {
-      <strong [style.color]="answer.isCorrect ? 'green' : 'red'">
-        {{ answer.text }}
-      </strong>
-      }
-      <br />
-      The correct answer is highlighted in green.
-    </p>
-    <br />
+      <mat-card-footer>
+        <button
+          class="question__submit"
+          mat-flat-button
+          color="primary"
+          (click)="handleAnswer()"
+          [disabled]="!selectedAnswer || showCorrectAnswer"
+        >
+          Submit Answer
+        </button>
+      </mat-card-footer>
+    </mat-card>
   </div>
-
-  } @if (!showCorrectAnswer) {
-  <button
-    mat-flat-button
-    color="primary"
-    (click)="handleAnswer()"
-    [disabled]="!selectedAnswer"
-  >
-    Submit Answer</button
-  >}
 </div>
 } @if(gameOver){
 <div>

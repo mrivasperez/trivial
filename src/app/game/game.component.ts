@@ -8,6 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { DecodeHtmlPipe } from '../decode-html.pipe';
+import {MatCardModule} from '@angular/material/card';
 
 interface Answer {
   text: string;
@@ -24,6 +25,7 @@ interface Answer {
     FormsModule,
     MatStepperModule,
     DecodeHtmlPipe,
+    MatCardModule
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css',
