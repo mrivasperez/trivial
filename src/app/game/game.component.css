@@ -45,7 +45,7 @@
 .question__radio-group__option {
   width: 100%;
   border-radius: 1rem;
-  margin: .25rem 0;
+  margin: 0.25rem 0;
 }
 
 .question__radio-group__option.incorrect {
@@ -53,5 +53,5 @@
 }
 
 .question__radio-group__option.correct {
-  background-color: rgba(0, 128, 0, 0.2);
+  background-color: rgba(51, 209, 122, 0.3);
 }
