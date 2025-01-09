@@ -9,7 +9,7 @@
     </div>
     }
   </div>
-
+  
   <div class="question">
     <p>
       <strong>Category:</strong> {{ questions[currentQuestionIndex].category }}
@@ -18,9 +18,9 @@
       <strong>Difficulty:</strong>
       {{ questions[currentQuestionIndex].difficulty }}
     </p>
-    <p>
-      <strong>Question:</strong> {{ questions[currentQuestionIndex].question }}
-    </p>
+    <h1>
+      {{ questions[currentQuestionIndex].question | decodeHtml }}
+    </h1>
     <mat-radio-group (change)="selectAnswer($event.value)">
       @for (answer of answers; track $index) {
       <mat-radio-button [value]="answer.text" [checked]="answer.isSelected">
